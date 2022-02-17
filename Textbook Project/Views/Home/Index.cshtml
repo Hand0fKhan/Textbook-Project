@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Book Page";
+}
+
+@model ProjectViewModel
+
+<head>
+    <h1>Welcome to the Online Bookstore</h1>
+</head>
+
+<h1>Online Book Store</h1>
+
+@foreach (Book b in Model.Books)
+{
+    <h2>@b.Title</h2>
+    <ul>
+        <li>Author: @b.Author</li>
+        <li>Pages: @b.PageCount</li>
+        <li>Price: $@b.Price</li>
+    </ul>
+
+    <br/>
+
+}
+<footer>
+    <div Page-Model="@Model.PageInfo" page-action="Index"></div>
+    <h9>Page Numbers are functional, but not apparent in this project.</h9><br>
+    <h9>To change page number, enter ?followed by pageNum=desired page number to change pages</h9>
+</footer>
+

@@ -18,20 +18,23 @@ namespace Textbook_Project.Controllers
 
 
         //For pulling info from repositories to webpage
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string bookType, int pageNum = 1)
         {
             int pageCt = 10;
 
             var BookPage = new ProjectViewModel
             {
                 Books = repo.BookLibrary.
+                Where(b => b.Category == bookType || bookType == null).
                 OrderBy(b => b.Title).
                 Skip((pageNum - 1) * pageCt).
                 Take(pageCt),
 
                 PageInfo = new PageInfo
                 {
-                    TotalBooks = repo.BookLibrary.Count(),
+                    TotalBooks = (bookType == null ? 
+                        repo.BookLibrary.Count() : 
+                        repo.BookLibrary.Where(x => x.Category == bookType).Count()),
                     BooksPerPage = pageCt,
                     CurrentPage = pageNum
                 }

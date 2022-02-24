@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Textbook_Project.Models.ViewModels;
 
-namespace Textbook_Project.Models
+namespace Textbook_Project.Infrastructure
 {
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PaginationTagHelper: TagHelper
@@ -17,7 +17,7 @@ namespace Textbook_Project.Models
         //Dynamically create page links
         private IUrlHelperFactory uhf;
 
-        public PaginationTagHelper (UrlHelperFactory temp)
+        public PaginationTagHelper (IUrlHelperFactory temp)
         {
             uhf = temp;
         }

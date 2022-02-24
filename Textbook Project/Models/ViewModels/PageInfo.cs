@@ -12,6 +12,6 @@ namespace Textbook_Project.Models.ViewModels
         public int BooksPerPage { get; set; }
         public int CurrentPage { get; set; }
         //Calculate 
-        public int TotalPages => (int) Math.Ceiling((double) TotalBooks / CurrentPage);
+        public int TotalPages => (int) Math.Ceiling((double) TotalBooks / BooksPerPage);
     }
 }

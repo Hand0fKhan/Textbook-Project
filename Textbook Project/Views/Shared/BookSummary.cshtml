@@ -1,0 +1,32 @@
+﻿@{
+}
+
+@model Book
+
+<div class="card">
+    <div class="bg-dark p-1 text-white">
+        <h3>@Model.Title</h3>
+
+        <span class="badge bg-info" style="float:right">
+            <h9>Price: $@Model.Price</h9>
+        </span>
+    </div>
+
+    <ul class="bg-dark text-white-50">
+        <li>Author: @Model.Author</li>
+        <li>Pages: @Model.PageCount</li>
+    </ul>
+    <form method="post" asp-page="/Cart">
+        <input type="hidden" asp-for="@Model.BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm float-end">Add To Card</button>
+        </span>
+    </form>
+    <br />
+</div>
+
+
+
+

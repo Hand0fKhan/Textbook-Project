@@ -21,6 +21,7 @@ namespace Textbook_Project.Models
         }
 
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Checkout> Checkout { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

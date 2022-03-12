@@ -1,0 +1,19 @@
+﻿@page "/admin"
+@model Textbook_Project.Pages.Admin.IndexModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Administrator Page</title>
+    <link href="~/lib/css/bootstrap.min.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body>
+    <p>Welcome Person of Privlege</p>
+
+    <component type="typeof(Textbook_Project.Pages.Admin.Routed)" render-mode="ServerPrerendered"/>
+    <script src="/_framework/blazor/server/js"></script>
+</body>
+</html>

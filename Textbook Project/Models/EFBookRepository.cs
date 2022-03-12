@@ -15,5 +15,22 @@ namespace Textbook_Project.Models
         }
 
         public IQueryable<Book> BookLibrary => context.Books;
+
+        public void SaveBook(Book b)
+        {
+            context.SaveChanges();
+        }
+
+        public void CreateBook(Book b)
+        {
+            context.Add(b);
+            context.SaveChanges();
+        }
+
+        public void DeleteBook(Book b)
+        {
+            context.Remove(b);
+            context.SaveChanges();
+        }
     }
 }

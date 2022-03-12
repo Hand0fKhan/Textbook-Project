@@ -26,5 +26,8 @@ namespace Textbook_Project.Models
         [Required (ErrorMessage = "Please enter a Country: ")]
         public string Country { get; set; }
         public string Zip { get; set; }
+
+        [BindNever]
+        public bool OrderRecieved { get; set; } = false;
     }
 }

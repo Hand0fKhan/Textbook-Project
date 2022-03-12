@@ -1,0 +1,41 @@
+﻿<table class="table table-sm tab;e-striped table-bordered">
+    <thead>
+        <th colspan="5" class="text-center">@TableTitle</th>
+    </thead>
+    <tbody>
+        @if (Checkout?.Count() > 0)
+        {
+            @foreach (Checkout c in Checkout)
+                {
+                    <tr>
+                        <td>c.Name</td>
+                        <td>c.Zip</td>
+                    </tr>
+
+                    @foreach (BasketItem bi in c.Items)
+                    {
+                        <tr>
+                            <td colspan="2">@bi.Book.Title</td>
+                            <td>@bi.Quantity</td>
+                        </tr>
+                    }
+                }          }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">No Orders</td>
+                </tr>
+            }
+    </tbody>
+</table>
+@code {
+    [Parameter]
+    public string TableTitle { get; set; } = "Checkout Orders";
+
+    [Parameter]
+    public IEnumerable<Checkout> Checkout { get; set; }
+    [Parameter]
+    public string ButtonLabel { get; set; } = "Ordered";
+    [Parameter]
+    public EventCallback<int> CheckoutSelected { get; set; }
+}

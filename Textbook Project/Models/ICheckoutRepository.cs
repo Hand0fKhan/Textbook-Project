@@ -9,6 +9,7 @@ namespace Textbook_Project.Models
     {
         IQueryable<Checkout> Checkouts { get; }
 
+
         public void SaveCheckout(Checkout check);
     }
 }

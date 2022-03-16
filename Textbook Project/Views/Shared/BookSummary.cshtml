@@ -3,7 +3,7 @@
 
 @model Book
 
-<div class="card">
+<div class=" bg-dark card">
     <div class="bg-dark p-1 text-white">
         <h3>@Model.Title</h3>
 
@@ -16,7 +16,7 @@
         <li>Author: @Model.Author</li>
         <li>Pages: @Model.PageCount</li>
     </ul>
-    <form method="post" asp-page="/Cart">
+    <form method="post" asp-page="/Cart" class="bg-black">
         <input type="hidden" asp-for="@Model.BookId" />
         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
 
@@ -24,7 +24,7 @@
             <button type="submit" class="btn btn-success btn-sm float-end">Add To Card</button>
         </span>
     </form>
-    <br />
+    <br/>
 </div>
 
 
